@@ -8,7 +8,6 @@ IMPORT TestingSuite.Utils AS Utils;
 IMPORT TestingSuite.Classification as Classification;
 IMPORT TestingSuite.Clustering as Clustering;
 IMPORT TestingSuite.Regression as Regression;
-IMPORT TestingSuite.TimeSeries as TimeSeries;
 
 dataset_record := RECORD
 	INTEGER dataset_id;

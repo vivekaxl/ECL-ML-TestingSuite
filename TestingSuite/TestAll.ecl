@@ -58,10 +58,10 @@ action5 := OUTPUT(Utils.GenerateCode_R('Regression.TestLinearRegression', regres
 
 SEQUENTIAL(
     action1,
-    action2,
-    action3,
-    action4,
-    action5
+    // action2,
+    // action3,
+    // action4,
+    // action5
 );
 
 
