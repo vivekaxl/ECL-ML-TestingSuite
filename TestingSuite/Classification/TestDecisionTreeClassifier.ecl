@@ -26,14 +26,14 @@ EXPORT TestDecisionTreeClassifier(raw_dataset_name, repeats) := FUNCTIONMACRO
 
 		// To create training and testing sets
 		new_data_set := TABLE(AnyDataSet, {AnyDataSet, select_number := RANDOM()%100});
-        t_raw_train_data := new_data_set(select_number <= 40);
-        raw_train_data := PROJECT(t_raw_train_data, TRANSFORM(RECORDOF(t_raw_train_data),
-                                                                            SELF.id := COUNTER;
-                                                                            SELF := LEFT));
-        t_raw_test_data := new_data_set(select_number > 40);
-        raw_test_data := PROJECT(t_raw_test_data, TRANSFORM(RECORDOF(t_raw_train_data),
-                                                                            SELF.id := COUNTER;
-                                                                            SELF := LEFT));
+		t_raw_train_data := new_data_set(select_number <= 40);
+		raw_train_data := PROJECT(t_raw_train_data, TRANSFORM(RECORDOF(t_raw_train_data),
+																																				SELF.id := COUNTER;
+																																				SELF := LEFT));
+		t_raw_test_data := new_data_set(select_number > 40);
+		raw_test_data := PROJECT(t_raw_test_data, TRANSFORM(RECORDOF(t_raw_train_data),
+																																				SELF.id := COUNTER;
+																																				SELF := LEFT));
 
 		// Splitting data into train and test	
 		Utils.ToTraining(raw_train_data, train_data_independent);
