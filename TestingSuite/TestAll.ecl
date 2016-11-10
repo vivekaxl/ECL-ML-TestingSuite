@@ -16,7 +16,7 @@ ENDMACRO;
 
 INTEGER repeat_no := 10;
 
-SET OF STRING classificationDatasetNamesD := ['discrete_GermanDS', 'discrete_houseVoteDS',
+SET OF STRING classificationDatasetNamesD := ['discrete_GermanDS'];, 'discrete_houseVoteDS',
         'discrete_letterrecognitionDS','discrete_liverDS', 'discrete_satimagesDS',
         'discrete_soybeanDS', 'discrete_VehicleDS'];   
                                                
@@ -55,13 +55,15 @@ action2 := OUTPUT(Utils.GenerateCode('Classification.TestRandomForestClassificat
 action3 := OUTPUT(Utils.GenerateCode('Classification.TestDecisionTreeClassifier',  classificationDatasetNamesD, BenchmarkResults.dtc_performance_scores, c_no_of_elementsD, repeat_no), NAMED('Classification_DecisionTree'));
 action4 := OUTPUT(Utils.GenerateCode_K('Clustering.TestKmeans', clusteringDatasetNames, ClusterNumbers, BenchmarkResults.kmeans_performance_scores, repeat_no), NAMED('Clustering_KMeans'));
 action5 := OUTPUT(Utils.GenerateCode_R('Regression.TestLinearRegression', regressionDatasetNames), NAMED('Regression_LR'));
+action6 := OUTPUT(Utils.GenerateCode('Classification.TestLogisticRegression',  classificationDatasetNamesD, BenchmarkResults.dtc_performance_scores, c_no_of_elementsD, repeat_no), NAMED('Classification_LogisticRegression'));
 
 SEQUENTIAL(
-    action1,
+    // action1,
     // action2,
     // action3,
     // action4,
-    // action5
+    // action5,
+    action6
 );
 
 

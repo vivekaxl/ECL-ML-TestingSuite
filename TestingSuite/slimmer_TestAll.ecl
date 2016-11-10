@@ -43,7 +43,8 @@ SEQUENTIAL(
         OUTPUT(Utils.GenerateCode('Classification.TestRandomForestClassificationD',  classificationDatasetNamesD, BenchmarkResults.rfc_performance_scores_d, c_no_of_elementsD, 1), NAMED('Classification_RandomForestD')),
         OUTPUT(Utils.GenerateCode('Classification.TestDecisionTreeClassifier',  classificationDatasetNamesD, BenchmarkResults.dtc_performance_scores, c_no_of_elementsD, 1), NAMED('Classification_DecisionTree')),
         OUTPUT(Utils.GenerateCode_K('Clustering.TestKmeans', clusteringDatasetNames, ClusterNumbers, BenchmarkResults.kmeans_performance_scores, 1), NAMED('Clustering_KMeans')),
-        OUTPUT(Utils.GenerateCode_R('Regression.TestLinearRegression', regressionDatasetNames), NAMED('Regression_LR'))
+        OUTPUT(Utils.GenerateCode_R('Regression.TestLinearRegression', regressionDatasetNames), NAMED('Regression_LR')),
+        OUTPUT(Utils.GenerateCode('Classification.TestLogisticRegression',  classificationDatasetNamesD, BenchmarkResults.logistic_regression_performance_scores, c_no_of_elementsD, 1), NAMED('Classification_LogisticRegression'));
 );
 
 
